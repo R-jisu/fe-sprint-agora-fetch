@@ -1,18 +1,8 @@
-import agoraStatesDiscussions from "./data.js";
-
 const $body = document.querySelector("body");
 const $modal = document.querySelector(".modal");
 const $modal_body = document.querySelector(".modal_body");
 const findQ = (e) => {
-  let allDiscussions = [];
-  if (JSON.parse(localStorage.getItem("allQ")) == null) {
-    allDiscussions = [...agoraStatesDiscussions];
-  } else {
-    allDiscussions = [
-      ...JSON.parse(localStorage.getItem("allQ")),
-      ...agoraStatesDiscussions,
-    ];
-  }
+  let allDiscussions = [...JSON.parse(localStorage.getItem("allQ"))];
   for (let i = 0; i < allDiscussions.length; i++) {
     if (allDiscussions[i].id === e.target.id) return allDiscussions[i];
   }
